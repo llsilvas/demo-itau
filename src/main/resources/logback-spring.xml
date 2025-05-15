@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <springProperty name="name" source="spring.application.name" defaultValue="application"/>
+    <springProperty name="logLevel" source="logging.level.root" defaultValue="INFO"/>
+    <property name="logPatternLevel" value="%-5level [%thread] %logger{36} - %msg%n"/>
+
+    <!-- Console Appender (Logs no terminal) -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %d{HH:mm:ss.SSS} ${logPatternLevel}
+            </pattern>
+        </encoder>
+    </appender>
+    <root level="${logLevel}">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
